@@ -2,12 +2,13 @@ package it.dario.model.gestione;
 
 public class Utente {
 
-    public Utente(String nome, String cognome, int eta, String username, String pswd) {
+    public Utente(String nome, String cognome, int eta, String username, String pswd, boolean admin) {
         this.nome = nome;
         this.cognome = cognome;
         this.eta = eta;
         this.username = username;
         this.pswd = pswd;
+        this.admin = admin;
     }
 
     public String getNome() {
@@ -30,6 +31,10 @@ public class Utente {
         return pswd;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -48,6 +53,10 @@ public class Utente {
 
     public void setPswd(String pswd) {
         this.pswd = pswd;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     @Override
@@ -88,4 +97,5 @@ public class Utente {
     private int eta;
     private String username;
     private String pswd;
+    private boolean admin;
 }
