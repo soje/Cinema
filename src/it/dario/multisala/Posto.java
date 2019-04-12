@@ -34,7 +34,12 @@ public class Posto {
 
     @Override
     public String toString(){
-        return "[fila="+this.fila+"][posto="+this.numero+"][stato="+this.stato+"]";
+        return getClass().getName() + String.format(
+                "[fila=%c][posto=%d][stato=%d]",
+                this.fila,
+                this.numero,
+                this.stato
+        );
     }
     
     @Override

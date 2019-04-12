@@ -72,19 +72,37 @@ public class Spettacolo {
 
     @Override
     public String toString(){
-        String str = String.format("[prezzo=%f][politica_uno=%b][politica_due=%b][politica_tre=%b][sala=%s][film=%s][inizio=%s]",
-                this.prezzo, this.politica_uno, this.politica_due, this.politica_tre, this.sala, this.film, this.inizio);
-        return getClass()+str;
+        return getClass().getName() + String.format(
+                "[prezzo=%f][politica_uno=%b][politica_due=%b][politica_tre=%b][sala=%s][film=%s][inizio=%s]",
+                this.prezzo,
+                this.politica_uno,
+                this.politica_due,
+                this.politica_tre,
+                this.sala,
+                this.film,
+                this.inizio
+        );
     }
 
     @Override
     public boolean equals(Object object){
         if(object == null) return false;
-        if(getClass() != object.getClass()) return null;
+        if(getClass() != object.getClass()) return false;
 
         Spettacolo spettacolo = (Spettacolo) object;
 
-        return ()
+        return (this.prezzo == spettacolo.prezzo) && (this.politica_uno == spettacolo.politica_uno) && (this.politica_due == spettacolo.politica_due) && (this.politica_tre == spettacolo.politica_tre)
+                && (this.sala.equals(spettacolo.sala)) && (this.film.equals(spettacolo.film)) && (this.inizio.equals(spettacolo.inizio));
+    }
+
+    @Override
+    public Spettacolo clone(){
+        try{
+            return (Spettacolo) super.clone();
+        }catch(CloneNotSupportedException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private double prezzo;

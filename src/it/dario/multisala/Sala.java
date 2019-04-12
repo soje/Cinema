@@ -48,8 +48,13 @@ public class Sala {
 
     @Override
     public String toString(){
-        String str = String.format("[platea=%s][numeroSala=%d][piena=%b][postiDisponibli=%d][MAX_POSTI=%d]", this.platea.toString(), this.numeroSala, this.piena, this.postiDisponibili, this.MAX_POSTI);
-        return getClass()+str;
+        return getClass().getName() + String.format(
+                "[platea=%s][numeroSala=%d][piena=%b][postiDisponibli=%d][MAX_POSTI=%d]",
+                this.platea.toString(),
+                this.numeroSala,
+                this.piena,
+                this.postiDisponibili,
+                MAX_POSTI);
     }
 
     @Override
@@ -59,14 +64,13 @@ public class Sala {
 
         Sala sala = (Sala) object;
 
-        return sala.platea.equals(this.platea) && (sala.numeroSala == this.numeroSala) && (sala.piena == this.piena) && (sala.postiDisponibili == this.postiDisponibili) && (sala.MAX_POSTI == this.MAX_POSTI);
+        return sala.platea.equals(this.platea) && (sala.numeroSala == this.numeroSala) && (sala.piena == this.piena) && (sala.postiDisponibili == this.postiDisponibili) && (sala.MAX_POSTI == MAX_POSTI);
     }
 
     @Override
     public Sala clone(){
         try{
-            Sala cloned = (Sala) super.clone();
-            return cloned;
+            return (Sala) super.clone();
         }catch(CloneNotSupportedException e){
             e.printStackTrace();
             return null;

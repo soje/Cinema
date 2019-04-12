@@ -38,7 +38,12 @@ public class Film {
 
     @Override
     public String toString(){
-        return getClass().getName() + "[titolo="+this.titolo+"][info="+this.info+"][durata="+durata+"]";
+        return getClass().getName() + String.format(
+                "[titolo=%s][info=%s][durata=%d]",
+                this.titolo,
+                this.info,
+                this.durata
+        );
     }
 
     @Override
