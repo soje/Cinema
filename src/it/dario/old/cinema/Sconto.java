@@ -20,7 +20,7 @@ public class Sconto implements Cloneable, Serializable{
 	 */
 	public double applicaPoliticauno(double prezzo){
 		double perc = prezzo*POLITICA1/100;
-		prezzo-=perc;
+		prezzo -= perc;
 		return prezzo;
 	}
 	
